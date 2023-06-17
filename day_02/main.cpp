@@ -1,10 +1,11 @@
 #include <algorithm>
 #include <cassert>
-#include <fstream>
 #include <functional>
 #include <iostream>
 #include <set>
 #include <unordered_map>
+
+#include "../utility.h"
 
 enum class Choice : int { ROCK = 1, PAPER = 2, SCISSORS = 3 };
 
@@ -82,14 +83,6 @@ int PartTwo(std::ifstream &&file_handle) {
   return total_score;
 }
 
-std::ifstream GetOpenFileHandle(const std::string &file_name) {
-  std::ifstream file_handle(file_name);
-  if (!file_handle.is_open()) {
-    throw std::ios_base::failure("Failed to open file: " + file_name);
-  }
-  return file_handle;
-}
-
 int main() {
   const std::string kFileName = "input.txt";
 
@@ -100,3 +93,4 @@ int main() {
 
   return 0;
 }
+

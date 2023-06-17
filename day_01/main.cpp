@@ -2,21 +2,13 @@
 #include <array>
 #include <cassert>
 #include <fstream>
-#include <ios>
 #include <iostream>
 #include <iterator>
 #include <numeric>
 #include <string>
-#include <system_error>
 #include <vector>
 
-std::ifstream GetOpenFileHandle(const std::string &file_name) {
-  std::ifstream file_handle(file_name);
-  if (!file_handle.is_open()) {
-    throw std::ios_base::failure("Failed to open file: " + file_name);
-  }
-  return file_handle;
-}
+#include "../utility.h"
 
 template <int N = 1> auto GetNLargestSums(std::ifstream &file_handle) {
   std::array<int, N> largest_sums{};
